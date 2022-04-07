@@ -11,6 +11,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uvdn3.HelloController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -81,7 +82,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="name_text" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="2">
@@ -93,7 +94,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="street_text" GridPane.columnIndex="1" />
                               <Label text="ULICA">
                                  <GridPane.margin>
                                     <Insets left="25.0" />
@@ -115,7 +116,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="place_text" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="4">
@@ -132,7 +133,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <DatePicker prefHeight="26.0" prefWidth="332.0" GridPane.columnIndex="1" />
+                              <DatePicker fx:id="birthday" prefHeight="26.0" prefWidth="332.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -144,7 +145,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="last_name_txt" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -166,7 +167,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextField fx:id="house_num_text" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -187,7 +188,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="postal_text" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -215,12 +216,15 @@
                               </Label>
                               <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="MLAD VOZNIK">
+                                    <RadioButton fx:id="young" mnemonicParsing="false" selected="true" text="MLAD VOZNIK">
                                        <HBox.margin>
                                           <Insets top="15.0" />
                                        </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="experience" />
+                                       </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="IZKUŠEN VOZNIK">
+                                    <RadioButton fx:id="exp" mnemonicParsing="false" text="IZKUŠEN VOZNIK" toggleGroup="$experience">
                                        <HBox.margin>
                                           <Insets left="15.0" top="15.0" />
                                        </HBox.margin>
@@ -268,7 +272,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="brand" GridPane.columnIndex="1" />
                               <Label alignment="CENTER" text="ZNAMKA">
                                  <GridPane.margin>
                                     <Insets left="25.0" />
@@ -290,7 +294,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField minWidth="50.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="horseP" minWidth="50.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="4">
@@ -307,7 +311,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox prefHeight="26.0" prefWidth="316.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="type" prefHeight="26.0" prefWidth="316.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="3">
@@ -324,7 +328,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox prefHeight="26.0" prefWidth="313.0" GridPane.columnIndex="1" />
+                              <ComboBox fx:id="fuel" prefHeight="26.0" prefWidth="313.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -341,7 +345,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField maxWidth="250.0" GridPane.columnIndex="1">
+                              <TextField fx:id="label" maxWidth="303.0" prefHeight="26.0" prefWidth="303.0" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -362,7 +366,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="color" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -378,7 +382,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField prefWidth="250.0" GridPane.columnIndex="1">
+                              <TextField fx:id="seat_num" prefWidth="250.0" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -399,7 +403,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField GridPane.columnIndex="1">
+                              <TextField fx:id="space" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets right="25.0" />
                                  </GridPane.margin>
@@ -447,7 +451,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <DatePicker prefHeight="26.0" prefWidth="309.0" GridPane.columnIndex="1" />
+                              <DatePicker fx:id="first_reg" prefHeight="26.0" prefWidth="309.0" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="2">
@@ -464,7 +468,7 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="reg_num" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="3">
@@ -481,29 +485,44 @@
                                     <Insets left="25.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField GridPane.columnIndex="1" />
+                              <TextField fx:id="reg_loc" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>
-                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="83.0" text="SHRANI">
+                              <Button fx:id="save" mnemonicParsing="false" onAction="#save" prefHeight="55.0" prefWidth="83.0" text="SHRANI">
                                  <HBox.margin>
-                                    <Insets left="150.0" />
+                                    <Insets left="125.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="85.0" text="POBRIŠI">
+                              <Button fx:id="open" mnemonicParsing="false" prefHeight="54.0" prefWidth="83.0" text="ODPRI">
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="clear" mnemonicParsing="false" onAction="#clear" prefHeight="55.0" prefWidth="85.0" text="POBRIŠI">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Button mnemonicParsing="false" text="&lt;-">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="-&gt;" />
+                           </children>
+                        </HBox>
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="2">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="495.199951171875" minWidth="10.0" prefWidth="444.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.0" minWidth="10.0" prefWidth="556.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -537,13 +556,13 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <CheckBox mnemonicParsing="false" text="ZAVAROVANJE STEKEL" />
-                                    <CheckBox mnemonicParsing="false" text="ZAVRAOVANJE NA PARKIRIŠČU" GridPane.rowIndex="1" />
-                                    <CheckBox mnemonicParsing="false" text="ZAVAROVANJE POTNIKOV" GridPane.rowIndex="2" />
-                                    <CheckBox mnemonicParsing="false" text="ZAVAROVANJE PROTI KRAJI" GridPane.columnIndex="1" />
-                                    <CheckBox mnemonicParsing="false" text="ZAVAROVANJE PROTI TOČI" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <CheckBox mnemonicParsing="false" text="ZAVAROVANJE TRETJE OSEBE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <CheckBox mnemonicParsing="false" text="ZAVAROVANJE GUM" GridPane.columnIndex="2" />
+                                    <CheckBox fx:id="window" mnemonicParsing="false" text="ZAVAROVANJE STEKEL" />
+                                    <CheckBox fx:id="parking" mnemonicParsing="false" text="ZAVRAOVANJE NA PARKIRIŠČU" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="passenger" mnemonicParsing="false" text="ZAVAROVANJE POTNIKOV" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="theft" mnemonicParsing="false" text="ZAVAROVANJE PROTI KRAJI" GridPane.columnIndex="1" />
+                                    <CheckBox fx:id="hail" mnemonicParsing="false" text="ZAVAROVANJE PROTI TOČI" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <CheckBox fx:id="trd_per" mnemonicParsing="false" text="ZAVAROVANJE TRETJE OSEBE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <CheckBox fx:id="tires" mnemonicParsing="false" text="ZAVAROVANJE GUM" GridPane.columnIndex="2" />
                                  </children>
                               </GridPane>
                            </children>
@@ -583,12 +602,15 @@
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
-                                          <RadioButton mnemonicParsing="false" text="AO">
+                                          <RadioButton fx:id="AO" mnemonicParsing="false" selected="true" text="AO">
                                              <HBox.margin>
                                                 <Insets left="200.0" top="8.0" />
                                              </HBox.margin>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="basic" />
+                                             </toggleGroup>
                                           </RadioButton>
-                                          <RadioButton mnemonicParsing="false" text="AO+">
+                                          <RadioButton mnemonicParsing="false" text="AO+" toggleGroup="$basic">
                                              <HBox.margin>
                                                 <Insets left="25.0" top="8.0" />
                                              </HBox.margin>
@@ -613,17 +635,23 @@
                                     </Label>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
-                                          <RadioButton mnemonicParsing="false" text="POLNO">
+                                          <RadioButton fx:id="KasNone" mnemonicParsing="false" selected="true" text="BREZ">
                                              <HBox.margin>
-                                                <Insets left="120.0" top="8.0" />
+                                                <Insets left="10.0" top="8.0" />
                                              </HBox.margin>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="kasko" />
+                                             </toggleGroup>
+                                             <padding>
+                                                <Insets left="120.0" />
+                                             </padding>
                                           </RadioButton>
-                                          <RadioButton mnemonicParsing="false" text="ODBITNA FRANŠIZA">
+                                          <RadioButton fx:id="KasFull" mnemonicParsing="false" text="POLNO" toggleGroup="$kasko">
                                              <HBox.margin>
                                                 <Insets left="10.0" top="8.0" />
                                              </HBox.margin>
                                           </RadioButton>
-                                          <RadioButton mnemonicParsing="false" text="BREZ">
+                                          <RadioButton mnemonicParsing="false" text="ODBITNA FRANŠIZA" toggleGroup="$kasko">
                                              <HBox.margin>
                                                 <Insets left="10.0" top="8.0" />
                                              </HBox.margin>
